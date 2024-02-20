@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Loan" ADD COLUMN "address" TEXT;
+ALTER TABLE "Loan" ADD COLUMN "bank" TEXT;
+ALTER TABLE "Loan" ADD COLUMN "loan_name" TEXT;
+ALTER TABLE "Loan" ADD COLUMN "name" TEXT;

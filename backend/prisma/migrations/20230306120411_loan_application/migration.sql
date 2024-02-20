@@ -1,0 +1,23 @@
+-- CreateTable
+CREATE TABLE "Loan" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "status" TEXT NOT NULL DEFAULT 'pending',
+    "user_id" INTEGER NOT NULL,
+    "amount" INTEGER NOT NULL,
+    "duration" INTEGER NOT NULL,
+    "interestRate" REAL NOT NULL,
+    "installments" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "startedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Loan_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "LoanAttachments" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "file" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "loan_id" INTEGER NOT NULL,
+    CONSTRAINT "LoanAttachments_loan_id_fkey" FOREIGN KEY ("loan_id") REFERENCES "Loan" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
